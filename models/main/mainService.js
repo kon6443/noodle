@@ -1,5 +1,5 @@
 /**
- * Ramyun.js
+ * mainService.js
  */
 
 class MainService {
@@ -7,16 +7,18 @@ class MainService {
         this.ramyun = ramyun;
     }
 
-    async orderRamyun() {
-        const ramyunStatus = this.ramyun.getStatus();
-        if(ramyunStatus==='대기중' || ramyunStatus==='라면 완료') {
-            await this.ramyun.startMakingRamyun(); 
+    async orderRamyun(req) { 
+        const ramyunStatus = req.session.status;
+        if(ramyunStatus===this.ramyun.STATUSES.IDLE || ramyunStatus===this.ramyun.STATUSES.COMPLETED) {
+            var ramyunInstance = new this.ramyun();
+            await ramyunInstance.startMakingRamyun(req); 
         } else {
             throw new Error('라면이 이미 조리중 입니다.');
         }
     }
-    getCurrentStatus() {
-        return this.ramyun.getStatus();
+
+    getCurrentStatus(req) {
+        return req.session.status;
     }
 }
 
