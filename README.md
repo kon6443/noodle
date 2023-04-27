@@ -1,14 +1,14 @@
 # noodle
 
-## What is does?
+## What it does?
 This program is for basic practice of HTTP concepts. <br>
 Each client from the browser can order a ramyun which is a Korean instant noodle. <br>
 Once they have order their food, they can check the current process from the browser. <br>
 When the noodle is done, the server notifies it to the client. <br>
 
 Every time each client requests an order, a new ramyun object is created and starts to make it. <br>
-Since there exists each user's sessionID separately, I am using it to store each client's ramyun status. <br>
-Therefore, a user's order does not affect to another user which means that each of user has their own ramyun separetly. <br> 
+Since there exists each user's sessionID separately, req.session object is used to store each client's ramyun status. <br>
+Therefore, a user's order does not affect to another user. This implies that each of user has their own ramyun separetly. <br> 
 
 ## How to run it using Docker.
 
