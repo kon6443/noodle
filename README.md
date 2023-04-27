@@ -9,6 +9,6 @@ docker build -t noodle .
 docker run -d --name noodle_container --restart always -p 80:80 noodle 
 
 ## Used skills.
-• node.js
-• docker
+• node.js <br>
+• docker <br>
 
